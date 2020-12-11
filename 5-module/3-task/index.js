@@ -5,16 +5,16 @@ function initCarousel() {
   const slides = [...document.querySelectorAll('.carousel__slide')];
   const slidesWidth = slides.map(slide => slide.offsetWidth);
   let currentSlide = 0;
-  let currentCarouselWidth = slidesWidth[currentSlide];
+  let currentCarouselWidth = 0;
 
   carouselArrowLeft.style.display = 'none';
 
   carouselArrowRight.addEventListener('click', () => {
     carouselArrowLeft.style.display = '';
     if (currentSlide < slides.length - 1) {
-      carouselInner.style.transform = `translateX(-${currentCarouselWidth}px)`;
       currentSlide++;
       currentCarouselWidth += slidesWidth[currentSlide];
+      carouselInner.style.transform = `translateX(-${currentCarouselWidth}px)`;
     }
 
     if (currentSlide === slides.length - 1) {
@@ -27,7 +27,7 @@ function initCarousel() {
     if (currentSlide !== 0) {
       currentSlide--;
       currentCarouselWidth -= slidesWidth[currentSlide];
-      carouselInner.style.transform = `translateX(-${currentCarouselWidth - slidesWidth[currentSlide]}px)`;
+      carouselInner.style.transform = `translateX(-${currentCarouselWidth}px)`;
     }
 
     if (currentSlide === 0) {
