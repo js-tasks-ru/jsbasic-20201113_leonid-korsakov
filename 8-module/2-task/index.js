@@ -4,9 +4,9 @@ import ProductCard from '../../6-module/2-task/index.js';
 export default class ProductGrid {
   constructor(products) {
     this.products = products;
-    this.filters = {}; 
+    this.filters = {};
     this.render();
-  }	  
+  }
 
   render() {
     this.elem = createElement(`<div class="products-grid">
@@ -41,9 +41,7 @@ export default class ProductGrid {
     Object.assign(this.filters, filters);
     this.renderContent();
   }
-
   sub(ref) {
     return this.elem.querySelector(`.products-grid__${ref}`);
   }
-
 }

@@ -28,7 +28,7 @@ export default class Modal {
 
     const modalBody = document.createElement('div');
     modalBody.classList.add('modal__body');
-    modalBody.innerHTML = `<b>${this.node}</b>`
+    modalBody.innerHTML = `<b>${this.node}</b>`;
 
     modal.append(overlay);
     modalHeader.append(button);
@@ -39,10 +39,8 @@ export default class Modal {
     this.container.append(modal);
     document.body.append(this.container);
 
-    this.container.addEventListener('click', event => {
-      if (event.target.closest('button')) {
-        this.close();
-      }
+    button.addEventListener('click', () => {
+      this.close();
     });
 
     document.addEventListener('keydown', event => {
