@@ -5,5 +5,16 @@
  * @returns {string}
  */
 function showSalary(users, age) {
-  // ваш код...
+  let result = [];
+  for (let user of users) {
+    if (user.age <= age) {
+      result.push(`${user.name}, ${user.balance}`);
+    }
+  }
+  for (let user in result) {
+    if (user < result.length - 1) {
+      result[user] += '\n';
+    }
+  }
+  return result.join('');
 }
